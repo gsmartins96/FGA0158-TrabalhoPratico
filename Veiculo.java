@@ -1,4 +1,4 @@
-package estacionamentoOO;
+package oo_estacionamento;
 
 public class Veiculo{
 	private String marca;
@@ -7,17 +7,29 @@ public class Veiculo{
 
 	private Proprietario proprietario;
 
-	public String getMarca();
-	public void setMarca(String marca);
+	public String getMarca() {
+		return null;
+	}
+	public void setMarca(String marca) {
+	}
 
-	public String getModelo();
-	public void setModelo(String modelo);
+	public String getModelo() {
+		return null;
+	}
+	public void setModelo(String modelo) {
+	}
 
-	public String getPlaca();
-	public void setPlaca(String placa);
+	public String getPlaca() {
+		return null;
+	}
+	public void setPlaca(String placa) {
+	}
 
-	public Proprietario getProprietario();
-	public void setProprietario(Proprietario p);
+	public Proprietario getProprietario() {
+		return null;
+	}
+	public void setProprietario(Proprietario p) {
+	}
 
 	//This is constructor of Veiculo Class
 	Veiculo(String marca, String modelo, String placa){
