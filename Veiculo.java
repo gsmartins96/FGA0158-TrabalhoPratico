@@ -16,10 +16,17 @@ public class Veiculo{
 	public String getPlaca();
 	public void setPlaca(String placa);
 
+	public Proprietario getProprietario();
+	public void setProprietario(Proprietario p);
+
 	//This is constructor of Veiculo Class
 	Veiculo(String marca, String modelo, String placa){
 		this.marca = marca;
 		this.modelo = modelo;
 		this.placa = placa;
+	}
+
+	public String Trace(){
+		return marca + modelo + placa;
 	}
 }

@@ -36,4 +36,8 @@ public class Proprietario{
 		this.telefone = telefone;
 		this.cnh = cnh;
 	}
+
+	public String Trace(){
+		return "";
+	}
 }
