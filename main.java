@@ -6,15 +6,30 @@ import java.text.SimpleDateFormat;
 import java.util.Date;  
 
 public class main {
-
+	Scanner sc = new Scanner(System.in);
 	Veiculo[] veiculos;
 	Proprietario[] proprietarios;
 	Estacionamento[] acessos;
 
-	public static Proprietario cadastroProprietario(){
+	public static Proprietario cadastroProprietario(Veiculo v){
+		System.out.println("Nome:");
+		String nome = sc.next();
 
-		Proprietario o_Proprietario = new Proprietario();
-		return;
+		System.out.println("Endereco:");
+		String endereco = sc.next();
+
+		System.out.println("Celular:");
+		String celular = sc.next();
+		
+		System.out.println("Telefone:");
+		String telefone = sc.next();
+		
+		System.out.println("CNH:");
+		String cnh = sc.next();
+		
+		Proprietario o_Proprietario = new Proprietario(nome, endereco, celular, telefone, cnh);
+		o_Proprietario.addVeiculo(v);
+		return o_Proprietario;
 	}
 
 	public static Veiculo cadastroVeiculo(){
@@ -29,13 +44,13 @@ public class main {
 
 		Veiculo o_Veiculo = new Veiculo(marca, modelo, placa);
 
-		System.out.println("É veículo de mensalidade? S/N");
+		System.out.println("ï¿½ veï¿½culo de mensalidade? S/N");
 		String resposta = sc.next();
 		if(resposta == "N"){
 			System.out.println(o_Veiculo.Trace());
 			return o_Veiculo;	
 		} else {
-			Proprietario p = cadastroProprietario();
+			Proprietario p = cadastroProprietario(o_Veiculo);
 			o_Veiculo.setProprietario(p);
 			proprietarios.push( p );
 		}
@@ -45,7 +60,7 @@ public class main {
 
 	public static void novoAcesso(){
 
-		// escolher veículo
+		// escolher veï¿½culo
 
 		System.out.println("Dia de Acesso:");
 		String DataAcesso = sc.next();
@@ -53,7 +68,7 @@ public class main {
 		System.out.println("Hora de Entrada:");
 		String HoraEntrada = sc.next();
 		
-		System.out.println("Hora de Saída:");
+		System.out.println("Hora de Saï¿½da:");
 		String HoraSaida = sc.next();
 		
 		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida);
@@ -64,11 +79,9 @@ public class main {
 
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Bem-vindo ao programa de estacionamento, escolha uma opção:");
-		System.out.println("1 - Cadastrar novo veículo");
-		System.out.println("2 - Cadastrar novo acesso a veículo existente");
+		System.out.println("Bem-vindo ao programa de estacionamento, escolha uma opï¿½ï¿½o:");
+		System.out.println("1 - Cadastrar novo veï¿½culo");
+		System.out.println("2 - Cadastrar novo acesso a veï¿½culo existente");
 		String opcaoEscolhida = sc.next();
 
 		switch (opcaoEscolhida){
