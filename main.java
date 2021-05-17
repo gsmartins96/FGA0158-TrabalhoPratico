@@ -1,4 +1,4 @@
-package Classes;
+package oo_estacionamento;
 
 import java.util.Scanner;
 
@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;  
 
 public class main {
-	Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in);
 	Veiculo[] veiculos;
-	Proprietario[] proprietarios;
+	static Proprietario[] proprietarios;
 	Estacionamento[] acessos;
 
 	public static Proprietario cadastroProprietario(Veiculo v){
