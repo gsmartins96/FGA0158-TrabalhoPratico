@@ -1,44 +1,70 @@
-package oo_estacionamento;
+package oo_estacionamento; public class Veiculo{​​​​
 
-public class Veiculo{
-	private String marca;
-	private String modelo;
-	private String placa;
+    private String marca;
 
-	private Proprietario proprietario;
+    private String modelo;
 
-	public String getMarca() {
-		return null;
-	}
-	public void setMarca(String marca) {
-	}
+    private String placa;     private Proprietario proprietario;     public String getMarca() {​​​​
 
-	public String getModelo() {
-		return null;
-	}
-	public void setModelo(String modelo) {
-	}
+        return marca;
 
-	public String getPlaca() {
-		return null;
-	}
-	public void setPlaca(String placa) {
-	}
+    }​​​​
 
-	public Proprietario getProprietario() {
-		return null;
-	}
-	public void setProprietario(Proprietario p) {
-	}
+    public void setMarca(String marca) {​​​​
 
-	//This is constructor of Veiculo Class
-	Veiculo(String marca, String modelo, String placa){
-		this.marca = marca;
-		this.modelo = modelo;
-		this.placa = placa;
-	}
+        this.marca = marca;
 
-	public String Trace(){
-		return marca + modelo + placa;
-	}
-}
+    }​​​​     public String getModelo() {​​​​
+
+        return modelo;
+
+    }​​​​
+
+    public void setModelo(String modelo) {​​​​
+
+        this.modelo = modelo;
+
+    }​​​​     public String getPlaca() {​​​​
+
+        return placa;
+
+    }​​​​
+
+    public void setPlaca(String placa) {​​​​
+
+        this.placa = placa;
+
+    }​​​​     public Proprietario getProprietario() {​​​​
+
+        return proprietario;
+
+    }​​​​
+
+    public void setProprietario(Proprietario p) {​​​​
+
+        this.proprietario = proprietario;
+
+    }​​​​     //This is constructor of Veiculo Class
+
+    Veiculo(String marca, String modelo, String placa){​​​​
+
+        this.marca = marca;
+
+        this.modelo = modelo;
+
+        this.placa = placa;
+
+    }​​​​     public String Trace(){​​​​
+
+        return marca + modelo + placa;
+
+    }​​​​
+
+}​​​​
+
+        return data_acesso + hora_entrada + hora_saida;
+
+    }​​​​
+
+}​​​​
+
