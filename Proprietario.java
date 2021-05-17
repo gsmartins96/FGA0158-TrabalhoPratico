@@ -1,4 +1,4 @@
-package estacionamentoOO;
+package oo_estacionamento;
 
 public class Proprietario{
 	private String nome;
@@ -9,23 +9,41 @@ public class Proprietario{
 
 	private Veiculo[] veiculos;
 
-	public String getNome();
-	public void setNome(String nome);
+	public String getNome() {
+		return null;
+	}
+	public void setNome(String nome) {
+	}
 
-	public String getEndereco();
-	public void setEndereco(String endereco);
+	public String getEndereco() {
+		return null;
+	}
+	public void setEndereco(String endereco) {
+	}
 
-	public int getCelular();
-	public void setCelular(int celular);
+	public int getCelular() {
+		return 0;
+	}
+	public void setCelular(int celular) {
+	}
 
-	public int getTelefone();
-	public void setTelefone(int telefone);
+	public int getTelefone() {
+		return 0;
+	}
+	public void setTelefone(int telefone) {
+	}
 
-	public int getCNH();
-	public void setCNH(int cnh);
+	public int getCNH() {
+		return 0;
+	}
+	public void setCNH(int cnh) {
+	}
 
-	public Veiculo getVeiculo(int index);
-	public void addVeiculo(Veiculo v);
+	public Veiculo getVeiculo(int index) {
+		return null;
+	}
+	public void addVeiculo(Veiculo v) {
+	}
 
 
 	//This is constructor of Proprietario Class
@@ -37,6 +55,9 @@ public class Proprietario{
 		this.cnh = cnh;
 	}
 
+	public Proprietario(String nome2, String endereco2, String celular2, String telefone2, String cnh2) {
+		// TODO Auto-generated constructor stub
+	}
 	public String Trace(){
 		return "";
 	}
