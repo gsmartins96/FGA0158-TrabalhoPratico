@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 import java.text.SimpleDateFormat;  
 import java.util.Date;  
+import java.util.ArrayList;
 
 public class main {
 	static Scanner sc = new Scanner(System.in);
-	Veiculo[] veiculos;
-	static Proprietario[] proprietarios;
-	Estacionamento[] acessos;
+	static ArrayList<Veiculo> veiculos = new ArrayList();
+	static ArrayList<Proprietario> proprietarios = new ArrayList();
+	static ArrayList<Estacionamento> acessos = new ArrayList();
 
 	public static Proprietario cadastroProprietario(Veiculo v){
 		System.out.println("Nome:");
@@ -52,8 +53,9 @@ public class main {
 		} else {
 			Proprietario p = cadastroProprietario(o_Veiculo);
 			o_Veiculo.setProprietario(p);
-			proprietarios.push( p );
+			proprietarios.add( p );
 		}
+		return o_Veiculo;
 
 		
 	}
@@ -85,10 +87,10 @@ public class main {
 		String opcaoEscolhida = sc.next();
 
 		switch (opcaoEscolhida){
-			case 1:
-				veiculos.push( cadastroVeiculo() );
+			case "1":
+				veiculos.add( cadastroVeiculo() );
 				break;
-			case 2:
+			case "2":
 				novoAcesso();
 				break;
 			default:
