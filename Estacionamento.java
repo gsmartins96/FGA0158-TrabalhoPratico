@@ -1,4 +1,4 @@
-package estacionamentoOO;
+package Classes;
 
 public class Estacionamento{
 	private String data_acesso;
@@ -30,12 +30,16 @@ public class Estacionamento{
 		this.hora_entrada = hora_entrada;
 		this.hora_saida = hora_saida;
 	}
-
+	
 	public float calcularPreco(){
-
+		
 	}
 
 	public void zerarFaturamento(){
 		
+	}
+	
+	public String Trace(){
+		return data_acesso + hora_entrada + hora_saida;
 	}
 }
