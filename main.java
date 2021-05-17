@@ -34,14 +34,26 @@ public class main {
 	}
 
 	public static Veiculo cadastroVeiculo(){
-		System.out.println("Marca:");
-		String marca = sc.next();
 
-		System.out.println("Modelo:");
-		String modelo = sc.next();
+		try{
+			System.out.println("Marca:");
+			String marca = sc.next();
 
-		System.out.println("Placa:");
-		String placa = sc.next();
+			System.out.println("Modelo:");
+			String modelo = sc.next();
+
+			System.out.println("Placa:");
+			String placa = sc.next();
+
+			if(marca == "")
+				throw new DadosVeiculosIncompletosException("Campo vazio: marca");
+			if(modelo == "")
+				throw new DadosVeiculosIncompletosException("Campo vazio: modelo");
+			if(placa == "")
+			 	throw new DadosVeiculosIncompletosException("Campo vazio: placa");
+		} catch (DadosVeiculosIncompletosException e) {
+			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
+		}
 
 		Veiculo o_Veiculo = new Veiculo(marca, modelo, placa);
 
