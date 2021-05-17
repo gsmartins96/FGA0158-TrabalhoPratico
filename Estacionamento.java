@@ -1,4 +1,4 @@
-package Classes;
+package oo_estacionamento;
 
 public class Estacionamento{
 	private String data_acesso;
@@ -9,20 +9,35 @@ public class Estacionamento{
 
 	private Proprietario proprietario;
 
-	public String getData_acesso();
-	public void setData_acesso(String data_acesso);
+	public String getData_acesso() {
+		return null;
+	}
+	public void setData_acesso(String data_acesso) {
+	}
 
-	public String getHora_entrada();
-	public void setHora_entrada(String hora_entrada);
+	public String getHora_entrada() {
+		return null;
+	}
+	public void setHora_entrada(String hora_entrada) {
+	}
 
-	public String getHora_saida();
-	public void setHora_saida(String hora_saida);
+	public String getHora_saida() {
+		return null;
+	}
+	public void setHora_saida(String hora_saida) {
+	}
 
-	public float getFaturamento();
-	public void setFaturamento(float faturamento);
+	public float getFaturamento() {
+		return 0;
+	}
+	public void setFaturamento(float faturamento) {
+	}
 
-	public float getValorEstacionamento();
-	public void setValorEstacionamento(float valorEstacionamento);
+	public float getValorEstacionamento() {
+		return 0;
+	}
+	public void setValorEstacionamento(float valorEstacionamento) {
+	}
 
 	//This is constructor of Estacionamento Class
 	Estacionamento(String data_acesso, String hora_entrada, String hora_saida){
@@ -32,6 +47,7 @@ public class Estacionamento{
 	}
 	
 	public float calcularPreco(){
+		return faturamento;
 		
 	}
 
