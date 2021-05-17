@@ -1,64 +1,100 @@
-package oo_estacionamento;
+package oo_estacionamento; import java.util.ArrayList; public class Proprietario{​​​​
 
-public class Proprietario{
-	private String nome;
-	private String endereco;
-	private int celular;
-	private int telefone;
-	private int cnh;
+    private String nome;
 
-	private Veiculo[] veiculos;
+    private String endereco;
 
-	public String getNome() {
-		return null;
-	}
-	public void setNome(String nome) {
-	}
+    private int celular;
 
-	public String getEndereco() {
-		return null;
-	}
-	public void setEndereco(String endereco) {
-	}
+    private int telefone;
 
-	public int getCelular() {
-		return 0;
-	}
-	public void setCelular(int celular) {
-	}
+    private int cnh;     static ArrayList<Veiculo> veiculos = new ArrayList();     public String getNome() {​​​​
 
-	public int getTelefone() {
-		return 0;
-	}
-	public void setTelefone(int telefone) {
-	}
+        return nome;
 
-	public int getCNH() {
-		return 0;
-	}
-	public void setCNH(int cnh) {
-	}
+    }​​​​
 
-	public Veiculo getVeiculo(int index) {
-		return null;
-	}
-	public void addVeiculo(Veiculo v) {
-	}
+    public void setNome(String nome) {​​​​
 
+        this.nome = nome;
 
-	//This is constructor of Proprietario Class
-	Proprietario(String nome, String endereco, int celular, int telefone, int cnh){
-		this.nome = nome;
-		this.endereco = endereco;
-		this.celular = celular;
-		this.telefone = telefone;
-		this.cnh = cnh;
-	}
+    }​​​​     public String getEndereco() {​​​​
 
-	public Proprietario(String nome2, String endereco2, String celular2, String telefone2, String cnh2) {
-		// TODO Auto-generated constructor stub
-	}
-	public String Trace(){
-		return "";
-	}
-}
+        return endereco;
+
+    }​​​​
+
+    public void setEndereco(String endereco) {​​​​
+
+        this.endereco = endereco;
+
+    }​​​​     public int getCelular() {​​​​
+
+        return celular;
+
+    }​​​​
+
+    public void setCelular(int celular) {​​​​
+
+        this.celular = nome;
+
+    }​​​​     public int getTelefone() {​​​​
+
+        return telefone;
+
+    }​​​​
+
+    public void setTelefone(int telefone) {​​​​
+
+        this.telefone = telefone;
+
+    }​​​​     public int getCNH() {​​​​
+
+        return cnh;
+
+    }​​​​
+
+    public void setCNH(int cnh) {​​​​
+
+        this.cnh = cnh;
+
+    }​​​​     public Veiculo getVeiculo(int index) {​​​​
+
+        return veiculos.get(index);
+
+    }​​​​
+
+    public void addVeiculo(Veiculo v) {​​​​
+
+        veiculos.add(v);
+
+    }​​​​ 
+
+    //This is constructor of Proprietario Class
+
+    Proprietario(String nome, String endereco, int celular, int telefone, int cnh){​​​​
+
+        this.nome = nome;
+
+        this.endereco = endereco;
+
+        this.celular = celular;
+
+        this.telefone = telefone;
+
+        this.cnh = cnh;
+
+    }​​​​     public Proprietario(String nome2, String endereco2, String celular2, String telefone2, String cnh2) {​​​​
+
+        // TODO Auto-generated constructor stub
+
+    }​​​​
+
+    public String Trace(){​​​​
+
+        return nome;
+
+    }​​​​
+
+}​​​​
+
