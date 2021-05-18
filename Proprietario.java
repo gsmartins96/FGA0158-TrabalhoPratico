@@ -1,5 +1,7 @@
 package oo_estacionamento;
 
+import java.util.ArrayList;
+
 public class Proprietario{
 	private String nome;
 	private String endereco;
@@ -7,42 +9,48 @@ public class Proprietario{
 	private int telefone;
 	private int cnh;
 
-	private Veiculo[] veiculos;
+	static ArrayList<Veiculo> veiculos = new ArrayList();
 
 	public String getNome() {
-		return null;
+		return nome;
 	}
 	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEndereco() {
-		return null;
+		return endereco;
 	}
 	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public int getCelular() {
-		return 0;
+		return celular;
 	}
 	public void setCelular(int celular) {
+		this.celular = nome;
 	}
 
 	public int getTelefone() {
-		return 0;
+		return telefone;
 	}
 	public void setTelefone(int telefone) {
+		this.telefone = telefone;
 	}
 
 	public int getCNH() {
-		return 0;
+		return cnh;
 	}
 	public void setCNH(int cnh) {
+		this.cnh = cnh;
 	}
 
 	public Veiculo getVeiculo(int index) {
-		return null;
+		return veiculos.get(index);
 	}
 	public void addVeiculo(Veiculo v) {
+		veiculos.add(v);
 	}
 
 
@@ -59,6 +67,6 @@ public class Proprietario{
 		// TODO Auto-generated constructor stub
 	}
 	public String Trace(){
-		return "";
+		return nome;
 	}
 }

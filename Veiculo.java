@@ -8,27 +8,31 @@ public class Veiculo{
 	private Proprietario proprietario;
 
 	public String getMarca() {
-		return null;
+		return marca;
 	}
 	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	public String getModelo() {
-		return null;
+		return modelo;
 	}
 	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
 
 	public String getPlaca() {
-		return null;
+		return placa;
 	}
 	public void setPlaca(String placa) {
+		this.placa = placa;
 	}
 
 	public Proprietario getProprietario() {
-		return null;
+		return proprietario;
 	}
 	public void setProprietario(Proprietario p) {
+		this.proprietario = proprietario;
 	}
 
 	//This is constructor of Veiculo Class
