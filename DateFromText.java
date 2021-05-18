@@ -1,6 +1,6 @@
 package Classes;
 
-// Estas s„o as duas bibliotecas nescessarias (importei completas)
+// Estas s√£o as duas bibliotecas nescessarias (importei completas)
 import java.text.*;
 import java.util.*;
 
@@ -13,7 +13,7 @@ public class DataFromText {
 		System.out.println("Data de entrada(dd/mm/aaaa):");
 		String DataText = sc.next();	// String lida e armazenada
 		
-		SimpleDateFormat Data1 = new SimpleDateFormat("dd/MM/yyyy");	// Aqui È possivel Escolher o formato
+		SimpleDateFormat Data1 = new SimpleDateFormat("dd/MM/yyyy");	// Aqui √© possivel Escolher o formato
 		Date Data2 = Data1.parse(DataText);	// "Interpreta" o conteudo da string e transforma em Date
 		
 		System.out.println(Data2);	// Printa a data no formato Date
