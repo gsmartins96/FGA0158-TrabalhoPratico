@@ -13,37 +13,64 @@ public class main {
 	static ArrayList<Estacionamento> acessos = new ArrayList();
 
 	public static Proprietario cadastroProprietario(Veiculo v){
-		System.out.println("Nome:");
-		String nome = sc.next();
-
-		System.out.println("Endereco:");
-		String endereco = sc.next();
-
-		System.out.println("Celular:");
-		String celular = sc.next();
+		String nome = null;
+		String endereco = null;
+		String celular = null;
+		String telefone = null;
+		String cnh = null;
 		
-		System.out.println("Telefone:");
-		String telefone = sc.next();
-		
-		System.out.println("CNH:");
-		String cnh = sc.next();
+		try{
+			System.out.println("Nome:");
+			nome = sc.next();
+
+			System.out.println("Endereco:");
+			endereco = sc.next();
+
+			System.out.println("Celular:");
+			celular = sc.next();
+			
+			System.out.println("Telefone");
+			telefone = sc.next();
+			
+			System.out.println("CNH");
+			cnh = sc.next();
+
+			if(nome == "")
+				throw new DadosPessoaisIncompletosException("Campo vazio: Nome");
+			if(endereco == "")
+				throw new DadosPessoaisIncompletosException("Campo vazio: Endereco");
+			if(celular == "")
+			 	throw new DadosPessoaisIncompletosException("Campo vazio: Celular");
+			if(telefone == "")
+				throw new DadosPessoaisIncompletosException("Campo vazio: Telefone");
+			if(cnh == "")
+				throw new DadosPessoaisIncompletosException("Campo vazio: CNH")
+		} catch (DadosVeiculosIncompletosException e) {
+			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
+		}
 		
 		Proprietario o_Proprietario = new Proprietario(nome, endereco, celular, telefone, cnh);
 		o_Proprietario.addVeiculo(v);
 		return o_Proprietario;
 	}
+	
+
 
 	public static Veiculo cadastroVeiculo(){
+		
 
+		String marca = null;
+		String modelo = null;
+		String placa = null;
 		try{
 			System.out.println("Marca:");
-			String marca = sc.next();
+			marca = sc.next();
 
 			System.out.println("Modelo:");
-			String modelo = sc.next();
+			modelo = sc.next();
 
 			System.out.println("Placa:");
-			String placa = sc.next();
+			placa = sc.next();
 
 			if(marca == "")
 				throw new DadosVeiculosIncompletosException("Campo vazio: marca");
@@ -54,6 +81,7 @@ public class main {
 		} catch (DadosVeiculosIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 		}
+
 
 		Veiculo o_Veiculo = new Veiculo(marca, modelo, placa);
 
@@ -81,20 +109,33 @@ public class main {
 	public static void novoAcesso(){
 
 		// escolher veiculo
+
+		String DataAcesso = null;
+		String HoraEntrada = null;
+		String HoraSaida = null;
 		
-		// Guardar a data de acesso como string
-		System.out.println("Data de acesso:");
-		String DataAcesso = sc.next();
 		
-		// Guardar hora e minuto de entrada como string
-		System.out.println("Hora de Entrada(hh:mm):");
-		String HEntrada = sc.next();
+		try{
+			System.out.println("Data de Acesso:");
+			DataAcesso = sc.next();
+
+			System.out.println("Hora de Entrada(hh:mm):");
+			HoraEntrada = sc.next();
+
+			System.out.println("Hora de Saida(hh:mm):");
+			HoraSaida = sc.next();
+
+			if(DataAcesso == "")
+				throw new DadosAcessoIncompletosException("Campo vazio: Data de Acesso");
+			if(HoraEntrada == "")
+				throw new DadosAcessoIncompletosException("Campo vazio: Hora de entrada");
+			if(HoraSaida == "")
+			 	throw new DadosAcessoIncompletosException("Campo vazio: Hora de saida");
+		} catch (DadosAcessoIncompletosException e) {
+			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
+		}
 		
-		// Guardar hora e minuto de saida como string
-		System.out.println("Hora de Saida(hh:mm):");
-		String HSaida = sc.next();
-		
-		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HEntrada, HSaida);
+		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida);
 		
 		System.out.println(o_Estacionamento.Trace());
 	}
