@@ -13,11 +13,7 @@ public class main {
 	static ArrayList<Estacionamento> acessos = new ArrayList();
 
 	public static Proprietario cadastroProprietario(Veiculo v){
-		String nome = null;
-		String endereco = null;
-		String celular = null;
-		String telefone = null;
-		String cnh = null;
+		String nome, endereco, celular, telefone, cnh;
 		
 		try{
 			System.out.println("Nome:");
@@ -45,7 +41,7 @@ public class main {
 				throw new DadosPessoaisIncompletosException("Campo vazio: Telefone");
 			if(cnh == "")
 				throw new DadosPessoaisIncompletosException("Campo vazio: CNH")
-		} catch (DadosVeiculosIncompletosException e) {
+		} catch (DadosPessoaisIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 		}
 		
@@ -57,11 +53,8 @@ public class main {
 
 
 	public static Veiculo cadastroVeiculo(){
-		
+		String marca, modelo, placa;
 
-		String marca = null;
-		String modelo = null;
-		String placa = null;
 		try{
 			System.out.println("Marca:");
 			marca = sc.next();
@@ -110,9 +103,7 @@ public class main {
 
 		// escolher veiculo
 
-		String DataAcesso = null;
-		String HoraEntrada = null;
-		String HoraSaida = null;
+		String DataAcesso, HoraEntrada, HoraSaida;
 		
 		
 		try{
