@@ -84,22 +84,46 @@ public class Estacionamento{
 		// mensalista - taxa única de R$500 por mês por carro
 
 		float valorMinuto = 0.5f;
-		if(mensalista){
+				if(mensalista){
 			// R$500
 			valorEstacionamento = 500;
 		} else if(pernoite){
 			// R$30
 			valorEstacionamento = 30;
-		} else if (>9h) {
+		} else if (HORA>9h) {
 			// R$110
 			valorMinuto = 0.2f;
 			valorEstacionamento = 110;
+			estadia = 0;			
+			descontoHora = 0;
 
+			HORASPERMANECIDAS = HORASPERMANECIDAS - 9;
+			descontoHora = HORASPERMANECIDAS * 1;
+			if (MINUTOSPERMANECIDOS >= 15) {
+				aux = MINUTOSPERMANECIDOS / 15;
+				descontoMinuto = aux * 0,5f;
+				aux = MINUTOSPERMANECIDOS % 15;
+				aux = 0 + (MINUTOSPERMANECIDOS * 0,5)
+			}
+			else {
+				aux = MINUTOSPERMANECIDOS * 0,5;
+			}
+
+			estadia = estadia + valorEstacionamento;
+			estadia = estadia + (MINUTOSPERMANECIDOS * valorMinuto);
+			estadia = estadia + aux;
+			estadia = estadia - descontoHora;
+			estadia = estadia - descontoMinuto;
+			
 			// diminui 9h do tempo de estacionamento
 			// divide o tempo restante em minutos e multiplica isso por valorMinuto, adiciona a valorEstacionamento
 			// divide o tempo restante em horas e aplica o desconto no valorEstacionamento
 			// diminui as horas do tempo restante e divide isso por 15min, multiplica por 0.5f e aplica o desconto no valorEstacionamento
-		} else {
+		} else { 
+			estadia = MINUTOS * valorMinuto;
+			estadia = estadia + valorEstacionamento;
+			
+
 			// divide o tempo restante em minutos e multiplica isso por valorMinuto, adiciona a valorEstacionamento
 			// divide o tempo restante em horas e aplica o desconto no valorEstacionamento
 			// diminui as horas do tempo restante e divide isso por 15min, multiplica por 0.5f e aplica o desconto no valorEstacionamento
