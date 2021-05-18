@@ -67,9 +67,6 @@ public class Estacionamento{
 		int Tout = HoraSaida*60+MinutoSaida;
 		
 		// Calcula o tempo de estadia (em minutos)
-		if (Tout <= Tin) {
-			Tout += 1440;
-		}
 		int Estadia = Tin - Tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
 		
 		
