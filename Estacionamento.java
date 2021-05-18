@@ -53,12 +53,12 @@ public class Estacionamento{
 		
 				// Obter tempo em minutos
 		// Guardar hora e minuto de entrada
-		String HEsplit[] = HEntrada.split(":");
+		String HEsplit[] = this.hora_entrada.split(":");
 		int HoraEntrada = Integer.parseInt(HEsplit[0]);
 		int MinutoEntrada = Integer.parseInt(HEsplit[1]);
 		// Guardar hora e minuto de saida
 		
-		String HSsplit[] = HSaida.split(":");
+		String HSsplit[] = this.hora_saida.split(":");
 		int HoraSaida = Integer.parseInt(HSsplit[0]);
 		int MinutoSaida = Integer.parseInt(HSsplit[1]);
 		
@@ -68,8 +68,8 @@ public class Estacionamento{
 		
 		// Calcula o tempo de estadia (em minutos)
 		if (Tout <= Tin) {
-				Tout += 1440;
-			}
+			Tout += 1440;
+		}
 		int Estadia = Tin - Tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
 		
 		
