@@ -4,10 +4,10 @@ public class Estacionamento{
 	private String data_acesso;
 	private String hora_entrada;
 	private String hora_saida;
-	private float faturamento;
+	private static float faturamento;
 	private float valorEstacionamento;
 	private static int hora_abertura = 6*60;
-	private static int hora_fechamento = 6*20;
+	private static int hora_fechamento = 60*20;
 	
 	public String getData_acesso() {
 		return data_acesso;
@@ -50,26 +50,41 @@ public class Estacionamento{
 		this.hora_entrada = hora_entrada;
 		this.hora_saida = hora_saida;
 	}
+
+	private float calculoEstadia(int minutosPermanecidos, float precoMinuto){
+		float valorPago = precoMinuto * minutosPermanecidos;
+		while(minutosPermanecidos >= 60){
+			valorPago -= minutosPermanecidos/60
+			minutosPermanecidos = minutosPermanecidos/60
+		}
+
+		while(minutosPermanecidos >= 15){
+			valorPago -= (minutosPermanecidos/15) * (0.5f);
+			minutosPermanecidos = minutosPermanecidos/15
+		}
+
+		return valorPago;
+	}
 	
 	public void calcularPreco(boolean mensalista){
 		
-				// Obter tempo em minutos
+		// Obter tempo em minutos
 		// Guardar hora e minuto de entrada
 		String HEsplit[] = this.hora_entrada.split(":");
-		int HoraEntrada = Integer.parseInt(HEsplit[0]);
-		int MinutoEntrada = Integer.parseInt(HEsplit[1]);
+		int horaEntrada = Integer.parseInt(HEsplit[0]);
+		int minutoEntrada = Integer.parseInt(HEsplit[1]);
 		// Guardar hora e minuto de saida
 		
 		String HSsplit[] = this.hora_saida.split(":");
-		int HoraSaida = Integer.parseInt(HSsplit[0]);
-		int MinutoSaida = Integer.parseInt(HSsplit[1]);
+		int horaSaida = Integer.parseInt(HSsplit[0]);
+		int minutoSaida = Integer.parseInt(HSsplit[1]);
 		
 		// Converte para apenas minutos
-		int Tin = HoraEntrada*60+MinutoEntrada;
-		int Tout = HoraSaida*60+MinutoSaida;
+		int tin = horaEntrada*60+minutoEntrada;
+		int tout = horaSaida*60+minutoSaida;
 		
 		// Calcula o tempo de estadia (em minutos)
-		int Estadia = Tin - Tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
+		int estadia = tin - tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
 		
 		
 		
@@ -85,64 +100,33 @@ public class Estacionamento{
 		float valorMinuto = 0.5f;
 		if(mensalista){
 			// R$500
+
 			valorEstacionamento = 500;
-		} else if(pernoite){
-			// R$30
+
+		} else if(tin >= tout){
+			// R$30 + cálculo até 20h e cálculo depois de 6h
+
 			valorEstacionamento = 30;
-		} else if (HORA>9h) {
-			// R$110
+			valorEstacionamento += calculoEstadia(hora_fechamento - tin, valorMinuto);
+			valorEstacionamento += calculoEstadia(tout - hora_abertura, valorMinuto);
+
+		} else if (estadia/60 >= 9) {
+			// R$110 + cálculo do tempo restante
+			
 			valorMinuto = 0.2f;
 			valorEstacionamento = 110;
-			estadia = 0;			
-			descontoHora = 0;
-
-			HORASPERMANECIDAS = HORASPERMANECIDAS - 9;
-			descontoHora = HORASPERMANECIDAS * 1;
-			if (MINUTOSPERMANECIDOS >= 15) {
-				aux = MINUTOSPERMANECIDOS / 15;
-				descontoMinuto = aux * 6,5f;
-				aux = MINUTOSPERMANECIDOS % 15;
-				aux = 0 + (MINUTOSPERMANECIDOS * 0,5)
-			}
-			else {
-				aux = MINUTOSPERMANECIDOS * 0,5;
-			}
-
-			estadia = estadia + valorEstacionamento;
-			estadia = estadia + (MINUTOSPERMANECIDOS * valorMinuto);
-			estadia = estadia + aux;
-			estadia = estadia - descontoHora;
-			estadia = estadia - descontoMinuto;
-			
-			// diminui 9h do tempo de estacionamento
-			// divide o tempo restante em minutos e multiplica isso por valorMinuto, adiciona a valorEstacionamento
-			// divide o tempo restante em horas e aplica o desconto no valorEstacionamento
-			// diminui as horas do tempo restante e divide isso por 15min, multiplica por 0.5f e aplica o desconto no valorEstacionamento
+			valorEstacionamento += calculoEstadia(estadia - 9*60, valorMinuto);
 
 		} else { 
-			//HORAS < 9
-			estadia = 0;
-
-			estadia = HORASPERMANECIDAS * 25;
-
-			if (MINUTOSPERMANECIDOS >= 15) {
-				aux = MINUTOSPERMANECIDOS / 15;
-				descontoMinuto = aux * 6,5f;
-				aux = MINUTOSPERMANECIDOS % 15;
-				aux = 0 + (MINUTOSPERMANECIDOS * 0,5)
-			}
-			else {
-				aux = MINUTOSPERMANECIDOS * 0,5;
-			}
+			// cálculo do tempo
 			
-			estadia = estadia + aux;
-			estadia = estadia - descontoHora;
-			estadia = estadia - descontoMinuto;
+			valorEstacionamento = calculoEstadia(estadia, valorMinuto);
 
-			// divide o tempo restante em minutos e multiplica isso por valorMinuto, adiciona a valorEstacionamento
-			// divide o tempo restante em horas e aplica o desconto no valorEstacionamento
-			// diminui as horas do tempo restante e divide isso por 15min, multiplica por 0.5f e aplica o desconto no valorEstacionamento
 		}
+
+		faturamento += valorEstacionamento;
+		// imprimir getValorEstacionamento() na MAIN
+		
 	}
 
 	public void zerarFaturamento(){
