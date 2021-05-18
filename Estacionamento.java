@@ -6,7 +6,9 @@ public class Estacionamento{
 	private String hora_saida;
 	private float faturamento;
 	private float valorEstacionamento;
-
+	private static int hora_abertura = 6*60;
+	private static int hora_fechamento = 6*20;
+	
 	public String getData_acesso() {
 		return data_acesso;
 	}
