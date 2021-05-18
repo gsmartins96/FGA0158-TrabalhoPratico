@@ -82,32 +82,19 @@ public class main {
 
 		// escolher veiculo
 		
-		// Guardar hora e minuto de entrada
+		// Guardar a data de acesso como string
+		System.out.println("Data de acesso:");
+		String DataAcesso = sc.next();
+		
+		// Guardar hora e minuto de entrada como string
 		System.out.println("Hora de Entrada(hh:mm):");
 		String HEntrada = sc.next();
 		
-		String HEsplit[] = HEntrada.split(":");
-		int HoraEntrada = Integer.parseInt(HEsplit[0]);
-		int MinutoEntrada = Integer.parseInt(HEsplit[1]);
-		// Guardar hora e minuto de saida
+		// Guardar hora e minuto de saida como string
 		System.out.println("Hora de Saida(hh:mm):");
 		String HSaida = sc.next();
 		
-		String HSsplit[] = HSaida.split(":");
-		int HoraSaida = Integer.parseInt(HSsplit[0]);
-		int MinutoSaida = Integer.parseInt(HSsplit[1]);
-		
-		// Converte para apenas minutos
-		int Tin = HoraEntrada*60+MinutoEntrada;
-		int Tout = HoraSaida*60+MinutoSaida;
-		
-		// Calcula o tempo de estadia (em minutos)
-		if (Tout <= Tin) {
-			Tout += 1440;
-		}
-		int Estadia = Tin - Tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
-		
-		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida);
+		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HEntrada, HSaida);
 		
 		System.out.println(o_Estacionamento.Trace());
 	}
