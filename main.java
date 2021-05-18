@@ -81,15 +81,31 @@ public class main {
 	public static void novoAcesso(){
 
 		// escolher veiculo
-
-		System.out.println("Dia de Acesso:");
-		String DataAcesso = sc.next();
 		
-		System.out.println("Hora de Entrada:");
-		String HoraEntrada = sc.next();
+		// Guardar hora e minuto de entrada
+		System.out.println("Hora de Entrada(hh:mm):");
+		String HEntrada = sc.next();
 		
-		System.out.println("Hora de Saida:");
-		String HoraSaida = sc.next();
+		String HEsplit[] = HEntrada.split(":");
+		int HoraEntrada = Integer.parseInt(HEsplit[0]);
+		int MinutoEntrada = Integer.parseInt(HEsplit[1]);
+		// Guardar hora e minuto de saida
+		System.out.println("Hora de Saida(hh:mm):");
+		String HSaida = sc.next();
+		
+		String HSsplit[] = HSaida.split(":");
+		int HoraSaida = Integer.parseInt(HSsplit[0]);
+		int MinutoSaida = Integer.parseInt(HSsplit[1]);
+		
+		// Converte para apenas minutos
+		int Tin = HoraEntrada*60+MinutoEntrada;
+		int Tout = HoraSaida*60+MinutoSaida;
+		
+		// Calcula o tempo de estadia (em minutos)
+		if (Tout <= Tin) {
+			Tout += 1440;
+		}
+		int Estadia = Tin - Tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
 		
 		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida);
 		
