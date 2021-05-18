@@ -88,7 +88,7 @@ public class main {
 		System.out.println("Hora de Entrada:");
 		String HoraEntrada = sc.next();
 		
-		System.out.println("Hora de Sa�da:");
+		System.out.println("Hora de Saida:");
 		String HoraSaida = sc.next();
 		
 		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida);
