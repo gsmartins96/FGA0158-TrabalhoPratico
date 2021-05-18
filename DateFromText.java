@@ -13,7 +13,7 @@ public class DataFromText {
 		System.out.println("Hora da Entrada(hh:mm):");
 		String DataTextin = sc.next();	// String lida e armazenada
 		
-		SimpleDateFormat Data1 = new SimpleDateFormat("K:mm");	// Aqui é possivel Escolher o formato
+		SimpleDateFormat Data1 = new SimpleDateFormat("k:mm");	// Aqui é possivel Escolher o formato
 		Date Data2 = Data1.parse(DataTextin);	// "Interpreta" o conteudo da string e transforma em Date
 		
 		System.out.println(Data2);	// Printa a data no formato Date
