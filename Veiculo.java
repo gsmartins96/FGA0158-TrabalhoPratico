@@ -4,6 +4,7 @@ public class Veiculo{
 	private String marca;
 	private String modelo;
 	private String placa;
+	private boolean p;
 
 	private Proprietario proprietario;
 
@@ -28,11 +29,12 @@ public class Veiculo{
 		this.placa = placa;
 	}
 
-	public Proprietario getProprietario() {
-		return proprietario;
+	public boolean getProprietario() {
+		return p;
 	}
 	public void setProprietario(Proprietario p) {
 		this.proprietario = proprietario;
+		this.p = true;
 	}
 
 	//This is constructor of Veiculo Class
@@ -41,5 +43,6 @@ public class Veiculo{
 		this.modelo = modelo;
 		this.placa = placa;
 		proprietario = null;
+		this.p = false;
 	}
 }
