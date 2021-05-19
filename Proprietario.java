@@ -29,7 +29,7 @@ public class Proprietario{
 		return celular;
 	}
 	public void setCelular(int celular) {
-		this.celular = nome;
+		this.celular = celular;
 	}
 
 	public int getTelefone() {
