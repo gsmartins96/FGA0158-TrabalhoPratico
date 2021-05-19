@@ -52,8 +52,7 @@ public class Estacionamento{
 		this.hora_saida = hora_saida;
 		this.veiculo = v;
 
-		if(v.getProprietario() != null) calcularPreco(true);
-		else calcularPreco(false);
+		calcularPreco(v.getProprietario());
 	}
 
 	private float calculoEstadia(int minutosPermanecidos, float precoMinuto){
@@ -89,9 +88,7 @@ public class Estacionamento{
 		int tout = horaSaida*60+minutoSaida;
 		
 		// Calcula o tempo de estadia (em minutos)
-		int estadia = tin - tout; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
-		
-		
+		int estadia = tout - tin; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
 		
 		// fazer o calculo baseado no tempo de estacionamento
 
