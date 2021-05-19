@@ -55,13 +55,13 @@ public class Estacionamento{
 	private float calculoEstadia(int minutosPermanecidos, float precoMinuto){
 		float valorPago = precoMinuto * minutosPermanecidos;
 		while(minutosPermanecidos >= 60){
-			valorPago -= minutosPermanecidos/60
-			minutosPermanecidos = minutosPermanecidos/60
+			valorPago -= minutosPermanecidos/60;
+			minutosPermanecidos = minutosPermanecidos/60;
 		}
 
 		while(minutosPermanecidos >= 15){
 			valorPago -= (minutosPermanecidos/15) * (0.5f);
-			minutosPermanecidos = minutosPermanecidos/15
+			minutosPermanecidos = minutosPermanecidos/15;
 		}
 
 		return valorPago;
