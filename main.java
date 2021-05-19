@@ -40,7 +40,7 @@ public class main {
 			if(telefone == "")
 				throw new DadosPessoaisIncompletosException("Campo vazio: Telefone");
 			if(cnh == "")
-				throw new DadosPessoaisIncompletosException("Campo vazio: CNH")
+				throw new DadosPessoaisIncompletosException("Campo vazio: CNH");
 		} catch (DadosPessoaisIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 			return null;
@@ -76,7 +76,7 @@ public class main {
 
 		Veiculo o_Veiculo = new Veiculo(marca, modelo, placa);
 
-		System.out.println("� veiculo de mensalidade? S/N");
+		System.out.println("É veiculo de mensalidade? S/N");
 		String resposta = sc.next().toUpperCase();
 		
 		switch (resposta) {
@@ -97,7 +97,8 @@ public class main {
 
 	public static Veiculo procurarVeiculo(String placa){
 		for(int i = 0; i<veiculos.size(); i++){
-			if(veiculos.get(i).getPlaca() == placa) return veiculos.get(i);
+			Veiculo v = veiculos.get(i);
+			if(v.getPlaca().equals(placa)) return v;
 		}
 
 		return null;
@@ -106,11 +107,11 @@ public class main {
 	public static void novoAcesso(){
 
 		// escolher veiculo
-		System.out.println("Digite a placa do ve�culo:");
-		placa = sc.next();
+		System.out.println("Digite a placa do veículo:");
+		String placa = sc.next();
 		Veiculo v = procurarVeiculo(placa);
 		if(v == null){
-			System.out.println("Placa n�o encontrada");
+			System.out.println("Placa não encontrada");
 			return;
 		}
 
@@ -143,24 +144,24 @@ public class main {
 			int minutoSaida = Integer.parseInt(HSsplit[1]);
 
 			if((horaEntrada >= 20) && (horaEntrada <= 6))
-				throw new EstacionamentoFechadoException("Horário de entrada");
+				throw new EstacionamentoFechadoException("HorÃ¡rio de entrada");
 			if((horaSaida >= 20) && (horaSaida <= 6))
-				throw new EstacionamentoFechadoException("Horário de saída");
+				throw new EstacionamentoFechadoException("HorÃ¡rio de saÃ­da");
 			if(horaSaida*60+minutoSaida - horaEntrada*60+minutoEntrada <= 0)
-				throw new PeriodoInvalidoException("Possível pernoite");
+				throw new PeriodoInvalidoException("PossÃ­vel pernoite");
 			
 		} catch (DadosAcessoIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 			return;
 		} catch (EstacionamentoFechadoException e) {
-			System.out.println("Hor�rio inv�lido, o seguinte hor�rio foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
+			System.out.println("Horário inválido, o seguinte horário foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
 			return;
 		} catch (PeriodoInvalidoException e) {
-			System.out.println("Hor�rio registrado indica pernoite? S/N");
+			System.out.println("Horário registrado indica pernoite? S/N");
 			String resposta = sc.next().toUpperCase();
 			switch (resposta) {
 				case "N": 
-					System.out.println("Período de estadia inválido");
+					System.out.println("PerÃ­odo de estadia invÃ¡lido");
 					return;
 				case "S":
 					break;
@@ -168,7 +169,7 @@ public class main {
 		}
 		
 		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida, v);
-		System.out.println(o_Estacionamento.getValorEstacionamento());
+		System.out.printf("Valor do Estacionamento: R$ %.2f \n", o_Estacionamento.getValorEstacionamento());
 	}
 
 	public static void main(String[] args) {
@@ -183,14 +184,14 @@ public class main {
 			
 			switch (opcaoEscolhida){
 				case "1":
-					veiculos.add( cadastroVeiculo() );
+					cadastroVeiculo();
 					break;
 				case "2":
 					novoAcesso();
 					break;
 			}
-		} while (opcaoEscolhida != "0");
+		} while (!opcaoEscolhida.equals("0"));
 
-		System.out.println("Faturamento da sess�o: " + Estacionamento.getFaturamento());
+		System.out.printf("Faturamento da sessão: R$ %.2f", Estacionamento.getFaturamento());
 	}
 }
