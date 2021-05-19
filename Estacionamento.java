@@ -4,10 +4,13 @@ public class Estacionamento{
 	private String data_acesso;
 	private String hora_entrada;
 	private String hora_saida;
-	private static float faturamento;
 	private float valorEstacionamento;
+
+	private static float faturamento;
 	private static int hora_abertura = 6*60;
 	private static int hora_fechamento = 60*20;
+
+	private Veiculo veiculo;
 	
 	public String getData_acesso() {
 		return data_acesso;
@@ -46,10 +49,14 @@ public class Estacionamento{
 	}
 
 	//This is constructor of Estacionamento Class
-	Estacionamento(String data_acesso, String hora_entrada, String hora_saida){
+	Estacionamento(String data_acesso, String hora_entrada, String hora_saida, Veiculo v){
 		this.data_acesso = data_acesso;
 		this.hora_entrada = hora_entrada;
 		this.hora_saida = hora_saida;
+		this.veiculo = v;
+
+		if(v.getProprietario() != null) calcularPreco(true);
+		else calcularPreco(false);
 	}
 
 	private float calculoEstadia(int minutosPermanecidos, float precoMinuto){
