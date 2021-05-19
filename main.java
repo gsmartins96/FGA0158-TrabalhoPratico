@@ -13,8 +13,7 @@ public class main {
 	static ArrayList<Estacionamento> acessos = new ArrayList();
 
 	public static Proprietario cadastroProprietario(Veiculo v){
-		String nome, endereco;
-		int celular, telefone, cnh;
+		String nome, endereco, celular, telefone, cnh;
 		
 		try{
 			System.out.println("Nome:");
@@ -47,7 +46,7 @@ public class main {
 			return null;
 		}
 		
-		Proprietario o_Proprietario = new Proprietario(nome, endereco, celular, telefone, cnh);
+		Proprietario o_Proprietario = new Proprietario(nome, endereco, Integer.parseInt(celular), Integer.parseInt(telefone), Integer.parseInt(cnh));
 		return o_Proprietario;
 	}
 	
