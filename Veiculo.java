@@ -40,9 +40,6 @@ public class Veiculo{
 		this.marca = marca;
 		this.modelo = modelo;
 		this.placa = placa;
-	}
-
-	public String Trace(){
-		return marca + modelo + placa;
+		proprietario = null;
 	}
 }

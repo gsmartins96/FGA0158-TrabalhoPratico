@@ -9,8 +9,6 @@ public class Proprietario{
 	private int telefone;
 	private int cnh;
 
-	static ArrayList<Veiculo> veiculos = new ArrayList();
-
 	public String getNome() {
 		return nome;
 	}
@@ -46,14 +44,6 @@ public class Proprietario{
 		this.cnh = cnh;
 	}
 
-	public Veiculo getVeiculo(int index) {
-		return veiculos.get(index);
-	}
-	public void addVeiculo(Veiculo v) {
-		veiculos.add(v);
-	}
-
-
 	//This is constructor of Proprietario Class
 	Proprietario(String nome, String endereco, int celular, int telefone, int cnh){
 		this.nome = nome;
@@ -61,12 +51,5 @@ public class Proprietario{
 		this.celular = celular;
 		this.telefone = telefone;
 		this.cnh = cnh;
-	}
-
-	public Proprietario(String nome2, String endereco2, String celular2, String telefone2, String cnh2) {
-		// TODO Auto-generated constructor stub
-	}
-	public String Trace(){
-		return nome;
 	}
 }

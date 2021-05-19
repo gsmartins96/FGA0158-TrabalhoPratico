@@ -47,11 +47,10 @@ public class main {
 		}
 		
 		Proprietario o_Proprietario = new Proprietario(nome, endereco, celular, telefone, cnh);
-		o_Proprietario.addVeiculo(v);
 		return o_Proprietario;
 	}
 	
-	public static Veiculo cadastroVeiculo(){
+	public static void cadastroVeiculo(){
 		String marca, modelo, placa;
 
 		try{
@@ -72,36 +71,48 @@ public class main {
 			 	throw new DadosVeiculosIncompletosException("Campo vazio: placa");
 		} catch (DadosVeiculosIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
-			return null;
+			return;
 		}
-
 
 		Veiculo o_Veiculo = new Veiculo(marca, modelo, placa);
 
-		System.out.println("O veiculo de mensalidade? S/N");
+		System.out.println("É veiculo de mensalidade? S/N");
 		String resposta = sc.next().toUpperCase();
 		
 		switch (resposta) {
 		case "N": 
-			System.out.println(o_Veiculo.Trace());
-			return o_Veiculo;
+			break;
 		case "S":
 			Proprietario p = cadastroProprietario(o_Veiculo);
 			o_Veiculo.setProprietario(p);
-			proprietarios.add( p );
 			break;
 		default:
 			System.out.println("Escreva S ou N!");
 		}
-		
-		return o_Veiculo;
 
+		veiculos.add( o_Veiculo );
 		
+		return;
+	}
+
+	public static Veiculo procurarVeiculo(String placa){
+		for(int i = 0; i<veiculos.size(); i++){
+			if(veiculos.get(i).getPlaca() == placa) return veiculos.get(i);
+		}
+
+		return null;
 	}
 
 	public static void novoAcesso(){
 
 		// escolher veiculo
+		System.out.println("Digite a placa do veículo:");
+		placa = sc.next();
+		Veiculo v = procurarVeiculo(placa);
+		if(v == null){
+			System.out.println("Placa não encontrada");
+			return;
+		}
 
 		String DataAcesso = null, HoraEntrada = null, HoraSaida = null;
 		
@@ -142,10 +153,10 @@ public class main {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 			return;
 		} catch (EstacionamentoFechadoException e) {
-			System.out.println("HorÃ¡rio invÃ¡lido, o seguinte horÃ¡rio foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
+			System.out.println("Horário inválido, o seguinte horário foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
 			return;
 		} catch (PeriodoInvalidoException e) {
-			System.out.println("HorÃ¡rio registrado indica pernoite? S/N");
+			System.out.println("Horário registrado indica pernoite? S/N");
 			String resposta = sc.next().toUpperCase();
 			switch (resposta) {
 				case "N": 
@@ -156,9 +167,8 @@ public class main {
 			}
 		}
 		
-		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida);
-		
-		System.out.println(o_Estacionamento.Trace());
+		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida, v);
+		System.out.println(o_Estacionamento.getValorEstacionamento());
 	}
 
 	public static void main(String[] args) {
@@ -179,6 +189,8 @@ public class main {
 					novoAcesso();
 					break;
 			}
-		} while (opcaoEscolhida != "0");		
+		} while (opcaoEscolhida != "0");
+
+		System.out.println("Faturamento da sessão: " + Estacionamento.getFaturamento());
 	}
 }

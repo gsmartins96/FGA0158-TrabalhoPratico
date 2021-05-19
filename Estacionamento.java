@@ -33,7 +33,7 @@ public class Estacionamento{
 		this.hora_saida = hora_saida;
 	}
 
-	public float getFaturamento() {
+	public static float getFaturamento() {
 		return faturamento;
 	}
 
@@ -43,9 +43,6 @@ public class Estacionamento{
 	
 	public float getValorEstacionamento() {
 		return valorEstacionamento;
-	}
-	public void setValorEstacionamento(float valorEstacionamento) {
-		this.valorEstacionamento = valorEstacionamento;
 	}
 
 	//This is constructor of Estacionamento Class
@@ -135,11 +132,6 @@ public class Estacionamento{
 		faturamento += valorEstacionamento;
 		// imprimir getValorEstacionamento() na MAIN
 		
-	}
-
-	
-	
-	public String Trace(){
-		return data_acesso + hora_entrada + hora_saida;
+		return;
 	}
 }
