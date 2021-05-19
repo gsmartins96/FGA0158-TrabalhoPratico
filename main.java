@@ -13,7 +13,8 @@ public class main {
 	static ArrayList<Estacionamento> acessos = new ArrayList();
 
 	public static Proprietario cadastroProprietario(Veiculo v){
-		String nome, endereco, celular, telefone, cnh;
+		String nome, endereco;
+		int celular, telefone, cnh;
 		
 		try{
 			System.out.println("Nome:");
