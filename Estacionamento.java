@@ -33,10 +33,11 @@ public class Estacionamento{
 	public float getFaturamento() {
 		return faturamento;
 	}
-	public void setFaturamento(float faturamento) {
-		this.faturamento = faturamento;
-	}
 
+	public void zerarFaturamento(){
+		this.faturamento = 0;
+	}
+	
 	public float getValorEstacionamento() {
 		return valorEstacionamento;
 	}
@@ -129,9 +130,7 @@ public class Estacionamento{
 		
 	}
 
-	public void zerarFaturamento(){
-		this.faturamento = 0;
-	}
+	
 	
 	public String Trace(){
 		return data_acesso + hora_entrada + hora_saida;
