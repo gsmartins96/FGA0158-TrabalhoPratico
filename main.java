@@ -31,15 +31,15 @@ public class main {
 			System.out.println("CNH");
 			cnh = sc.next();
 
-			if(nome == "")
+			if(nome.equals(""))
 				throw new DadosPessoaisIncompletosException("Campo vazio: Nome");
-			if(endereco == "")
+			if(endereco.equals(""))
 				throw new DadosPessoaisIncompletosException("Campo vazio: Endereco");
-			if(celular == "")
+			if(celular.equals(""))
 			 	throw new DadosPessoaisIncompletosException("Campo vazio: Celular");
-			if(telefone == "")
+			if(telefone.equals(""))
 				throw new DadosPessoaisIncompletosException("Campo vazio: Telefone");
-			if(cnh == "")
+			if(cnh.equals(""))
 				throw new DadosPessoaisIncompletosException("Campo vazio: CNH");
 		} catch (DadosPessoaisIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
@@ -55,19 +55,19 @@ public class main {
 
 		try{
 			System.out.println("Marca:");
-			marca = sc.next();
+			marca = sc.nextLine();
 
 			System.out.println("Modelo:");
-			modelo = sc.next();
+			modelo = sc.nextLine();
 
 			System.out.println("Placa:");
-			placa = sc.next();
+			placa = sc.nextLine();
 
-			if(marca == "")
+			if(marca.equals(""))
 				throw new DadosVeiculosIncompletosException("Campo vazio: marca");
-			if(modelo == "")
+			if(modelo.equals(""))
 				throw new DadosVeiculosIncompletosException("Campo vazio: modelo");
-			if(placa == "")
+			if(placa.equals(""))
 			 	throw new DadosVeiculosIncompletosException("Campo vazio: placa");
 		} catch (DadosVeiculosIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
@@ -77,7 +77,7 @@ public class main {
 		Veiculo o_Veiculo = new Veiculo(marca, modelo, placa);
 
 		System.out.println("É veiculo de mensalidade? S/N");
-		String resposta = sc.next().toUpperCase();
+		String resposta = sc.nextLine().toUpperCase();
 		
 		switch (resposta) {
 		case "N": 
@@ -108,7 +108,7 @@ public class main {
 
 		// escolher veiculo
 		System.out.println("Digite a placa do veículo:");
-		String placa = sc.next();
+		String placa = sc.nextLine();
 		Veiculo v = procurarVeiculo(placa);
 		if(v == null){
 			System.out.println("Placa não encontrada");
@@ -120,19 +120,19 @@ public class main {
 		
 		try{
 			System.out.println("Data de Acesso:");
-			DataAcesso = sc.next();
+			DataAcesso = sc.nextLine();
 
 			System.out.println("Hora de Entrada(hh:mm):");
-			HoraEntrada = sc.next();
+			HoraEntrada = sc.nextLine();
 
 			System.out.println("Hora de Saida(hh:mm):");
-			HoraSaida = sc.next();
+			HoraSaida = sc.nextLine();
 
-			if(DataAcesso == "")
+			if(DataAcesso.equals(""))
 				throw new DadosAcessoIncompletosException("Campo vazio: Data de Acesso");
-			if(HoraEntrada == "")
+			if(HoraEntrada.equals(""))
 				throw new DadosAcessoIncompletosException("Campo vazio: Hora de entrada");
-			if(HoraSaida == "")
+			if(HoraSaida.equals(""))
 			 	throw new DadosAcessoIncompletosException("Campo vazio: Hora de saida");
 
 			// Dividindo horas e minutos em inteiros
@@ -144,11 +144,11 @@ public class main {
 			int minutoSaida = Integer.parseInt(HSsplit[1]);
 
 			if((horaEntrada >= 20) && (horaEntrada <= 6))
-				throw new EstacionamentoFechadoException("HorÃ¡rio de entrada");
+				throw new EstacionamentoFechadoException("Horario de entrada");
 			if((horaSaida >= 20) && (horaSaida <= 6))
-				throw new EstacionamentoFechadoException("HorÃ¡rio de saÃ­da");
+				throw new EstacionamentoFechadoException("Horario de sai­da");
 			if(horaSaida*60+minutoSaida - horaEntrada*60+minutoEntrada <= 0)
-				throw new PeriodoInvalidoException("PossÃ­vel pernoite");
+				throw new PeriodoInvalidoException("Possivel pernoite");
 			
 		} catch (DadosAcessoIncompletosException e) {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
@@ -161,7 +161,7 @@ public class main {
 			String resposta = sc.next().toUpperCase();
 			switch (resposta) {
 				case "N": 
-					System.out.println("PerÃ­odo de estadia invÃ¡lido");
+					System.out.println("Periodo de estadia invalido");
 					return;
 				case "S":
 					break;
@@ -180,7 +180,7 @@ public class main {
 			System.out.println("1 - Cadastrar novo veiculo");
 			System.out.println("2 - Cadastrar novo acesso a veiculo existente");
 			System.out.println("0 - Sair");
-			opcaoEscolhida = sc.next();
+			opcaoEscolhida = sc.nextLine();
 			
 			switch (opcaoEscolhida){
 				case "1":
