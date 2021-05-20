@@ -52,16 +52,19 @@ public class Estacionamento{
 		this.hora_saida = hora_saida;
 		this.veiculo = v;
 
-		calcularPreco(v.getProprietario());
+		calcularPreco();
 	}
 
 	private float calculoEstadia(int minutosPermanecidos, float precoMinuto){
 		float valorPago = precoMinuto * minutosPermanecidos;
+
+		// Desconto hora
 		while(minutosPermanecidos >= 60){
 			valorPago -= minutosPermanecidos/60;
 			minutosPermanecidos = minutosPermanecidos/60;
 		}
 
+		// Desconto 15min
 		while(minutosPermanecidos >= 15){
 			valorPago -= (minutosPermanecidos/15) * (0.5f);
 			minutosPermanecidos = minutosPermanecidos/15;
@@ -70,7 +73,7 @@ public class Estacionamento{
 		return valorPago;
 	}
 	
-	public void calcularPreco(boolean mensalista){
+	public void calcularPreco(){
 		
 		// Obter tempo em minutos
 		// Guardar hora e minuto de entrada
@@ -88,46 +91,11 @@ public class Estacionamento{
 		int tout = horaSaida*60+minutoSaida;
 		
 		// Calcula o tempo de estadia (em minutos)
-		int estadia = tout - tin; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
-		
-		// fazer o calculo baseado no tempo de estacionamento
-
-		// a cada minuto - 50c
-		// fração de 15min - desconto de 50c
-		// hora cheia - desconto de R$1
-		// diária (>9h dentro de um dia) - R$110 e minuto excedente valendo 20c
-		// pernoite - R$30
-		// mensalista - taxa única de R$500 por mês por carro
+		int estadia = tout - tin; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS		
 
 		float valorMinuto = 0.5f;
-		if(mensalista){
-			// R$500
-
-			valorEstacionamento = 500;
-
-		} else if(tin >= tout){
-			// R$30 + cálculo até 20h e cálculo depois de 6h
-
-			valorEstacionamento = 30;
-			valorEstacionamento += calculoEstadia(hora_fechamento - tin, valorMinuto);
-			valorEstacionamento += calculoEstadia(tout - hora_abertura, valorMinuto);
-
-		} else if (estadia/60 >= 9) {
-			// R$110 + cálculo do tempo restante
-			
-			valorMinuto = 0.2f;
-			valorEstacionamento = 110;
-			valorEstacionamento += calculoEstadia(estadia - 9*60, valorMinuto);
-
-		} else { 
-			// cálculo do tempo
-			
-			valorEstacionamento = calculoEstadia(estadia, valorMinuto);
-
-		}
-
+		valorEstacionamento = calculoEstadia(estadia, valorMinuto);
 		faturamento += valorEstacionamento;
-		// imprimir getValorEstacionamento() na MAIN
 		
 		return;
 	}
