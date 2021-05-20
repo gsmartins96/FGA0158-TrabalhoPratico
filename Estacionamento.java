@@ -1,16 +1,14 @@
-package oo_estacionamento;
+package estacionamento_oo;
 
 public class Estacionamento{
-	private String data_acesso;
-	private String hora_entrada;
-	private String hora_saida;
-	private float valorEstacionamento;
+	protected String data_acesso;
+	protected String hora_entrada;
+	protected String hora_saida;
+	protected float valorEstacionamento;
 
-	private static float faturamento;
-	private static int hora_abertura = 6*60;
-	private static int hora_fechamento = 60*20;
+	protected static float faturamento;
 
-	private Veiculo veiculo;
+	protected Veiculo veiculo;
 	
 	public String getData_acesso() {
 		return data_acesso;
@@ -55,9 +53,9 @@ public class Estacionamento{
 		calcularPreco();
 	}
 
-	private float calculoEstadia(int minutosPermanecidos, float precoMinuto){
+	protected float calculoEstadia(int minutosPermanecidos, float precoMinuto){
 		float valorPago = precoMinuto * minutosPermanecidos;
-
+		
 		// Desconto hora
 		while(minutosPermanecidos >= 60){
 			valorPago -= minutosPermanecidos/60;
@@ -74,7 +72,6 @@ public class Estacionamento{
 	}
 	
 	public void calcularPreco(){
-		
 		// Obter tempo em minutos
 		// Guardar hora e minuto de entrada
 		String HEsplit[] = this.hora_entrada.split(":");
