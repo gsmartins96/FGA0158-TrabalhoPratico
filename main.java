@@ -1,4 +1,4 @@
-package oo_estacionamento;
+package estacionamento_oo;
 
 import java.util.Scanner;
 
@@ -116,7 +116,7 @@ public class main {
 		}
 
 		String DataAcesso = null, HoraEntrada = null, HoraSaida = null;
-		
+		int tin = 0, tout = 0, estadia = 0;
 		
 		try{
 			System.out.println("Data de Acesso:");
@@ -143,6 +143,13 @@ public class main {
 			int horaSaida = Integer.parseInt(HSsplit[0]);
 			int minutoSaida = Integer.parseInt(HSsplit[1]);
 
+			// Converte para apenas minutos
+			tin = horaEntrada*60+minutoEntrada;
+			tout = horaSaida*60+minutoSaida;
+
+			// Calcula o tempo de estadia (em minutos)
+			estadia = tout - tin;
+
 			if((horaEntrada >= 20) && (horaEntrada <= 6))
 				throw new EstacionamentoFechadoException("Horario de entrada");
 			if((horaSaida >= 20) && (horaSaida <= 6))
@@ -154,10 +161,10 @@ public class main {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 			return;
 		} catch (EstacionamentoFechadoException e) {
-			System.out.println("Horário inválido, o seguinte horário foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
+			System.out.println("Hor�rio inv�lido, o seguinte hor�rio foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
 			return;
 		} catch (PeriodoInvalidoException e) {
-			System.out.println("Horário registrado indica pernoite? S/N");
+			System.out.println("Hor�rio registrado indica pernoite? S/N");
 			String resposta = sc.next().toUpperCase();
 			switch (resposta) {
 				case "N": 
@@ -167,8 +174,27 @@ public class main {
 					break;
 			}
 		}
+
+		Estacionamento o_Estacionamento;
+		if(v.getProprietario()){
+			// Estacionamento mensalista
+			o_Estacionamento = new EstacionamentoMensalista(DataAcesso, HoraEntrada, HoraSaida, v);
+
+		} else if(tin >= tout){
+			// Estacionamento pernoite
+			o_Estacionamento = new EstacionamentoPernoite(DataAcesso, HoraEntrada, HoraSaida, v);
+
+		} else if (estadia/60 >= 9) {
+			// Estacionamento di�ria
+			o_Estacionamento = new EstacionamentoDiaria(DataAcesso, HoraEntrada, HoraSaida, v);
+
+		} else { 
+			// Estacionamento normal
+			o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida, v);
+
+		}
 		
-		Estacionamento o_Estacionamento = new Estacionamento(DataAcesso, HoraEntrada, HoraSaida, v);
+		acessos.add(o_Estacionamento);
 		System.out.printf("Valor do Estacionamento: R$ %.2f \n", o_Estacionamento.getValorEstacionamento());
 	}
 
