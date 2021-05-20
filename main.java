@@ -1,4 +1,4 @@
-package estacionamento_oo2;
+package estacionamento_oo;
 
 import java.util.Scanner;
 
