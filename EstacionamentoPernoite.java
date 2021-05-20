@@ -1,9 +1,9 @@
-package oo_estacionamento;
+package estacionamento_oo2;
 
 public class EstacionamentoPernoite extends Estacionamento{
 
-	EstacionamentoPernoite(){
-		super();
+	EstacionamentoPernoite(String dataAcesso, String horaEntrada, String horaSaida, Veiculo v){
+		super(dataAcesso, horaEntrada, horaSaida, v);
 	}
 
 	@Override
@@ -21,12 +21,10 @@ public class EstacionamentoPernoite extends Estacionamento{
 		int tin = horaEntrada*60+minutoEntrada;
 		int tout = horaSaida*60+minutoSaida;
 		
-		// Calcula o tempo de estadia (em minutos)
-		int estadia = tout - tin; // AQUI ESTÁ O TEMPO DE ESTADIA EM MINUTOS
-		
+		float valorMinuto = 0.5f;
 		valorEstacionamento = 30;
-		valorEstacionamento += calculoEstadia(hora_fechamento - tin, valorMinuto);
-		valorEstacionamento += calculoEstadia(tout - hora_abertura, valorMinuto);
+		valorEstacionamento += calculoEstadia(60*20 - tin, valorMinuto);
+		valorEstacionamento += calculoEstadia(tout - 60*6, valorMinuto);
 		faturamento += valorEstacionamento;
 	}
 }
