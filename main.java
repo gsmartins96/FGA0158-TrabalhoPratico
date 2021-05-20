@@ -1,4 +1,4 @@
-package oo_estacionamento;
+package estacionamento_oo2;
 
 import java.util.Scanner;
 
@@ -116,7 +116,7 @@ public class main {
 		}
 
 		String DataAcesso = null, HoraEntrada = null, HoraSaida = null;
-		
+		int tin = 0, tout = 0, estadia = 0;
 		
 		try{
 			System.out.println("Data de Acesso:");
@@ -144,11 +144,11 @@ public class main {
 			int minutoSaida = Integer.parseInt(HSsplit[1]);
 
 			// Converte para apenas minutos
-			int tin = horaEntrada*60+minutoEntrada;
-			int tout = horaSaida*60+minutoSaida;
+			tin = horaEntrada*60+minutoEntrada;
+			tout = horaSaida*60+minutoSaida;
 
 			// Calcula o tempo de estadia (em minutos)
-			int estadia = tout - tin;
+			estadia = tout - tin;
 
 			if((horaEntrada >= 20) && (horaEntrada <= 6))
 				throw new EstacionamentoFechadoException("Horario de entrada");
@@ -161,10 +161,10 @@ public class main {
 			System.out.println("Por favor, preencha todos os campos. " + e.getMessage());
 			return;
 		} catch (EstacionamentoFechadoException e) {
-			System.out.println("Horário inválido, o seguinte horário foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
+			System.out.println("Horï¿½rio invï¿½lido, o seguinte horï¿½rio foi inserido enquanto o estacionamento estava fechado: " + e.getMessage());
 			return;
 		} catch (PeriodoInvalidoException e) {
-			System.out.println("Horário registrado indica pernoite? S/N");
+			System.out.println("Horï¿½rio registrado indica pernoite? S/N");
 			String resposta = sc.next().toUpperCase();
 			switch (resposta) {
 				case "N": 
@@ -178,15 +178,15 @@ public class main {
 		Estacionamento o_Estacionamento;
 		if(v.getProprietario()){
 			// Estacionamento mensalista
-			o_Estacionamento = new EstacionamentoMensalista(DataAcesso, HoraEntrada, HoraSaida, v) as Estacionamento;
+			o_Estacionamento = new EstacionamentoMensalista(DataAcesso, HoraEntrada, HoraSaida, v);
 
 		} else if(tin >= tout){
 			// Estacionamento pernoite
-			o_Estacionamento = new EstacionamentoPernoite(DataAcesso, HoraEntrada, HoraSaida, v) as Estacionamento;
+			o_Estacionamento = new EstacionamentoPernoite(DataAcesso, HoraEntrada, HoraSaida, v);
 
 		} else if (estadia/60 >= 9) {
-			// Estacionamento diária
-			o_Estacionamento = new EstacionamentoDiaria(DataAcesso, HoraEntrada, HoraSaida, v) as Estacionamento;
+			// Estacionamento diï¿½ria
+			o_Estacionamento = new EstacionamentoDiaria(DataAcesso, HoraEntrada, HoraSaida, v);
 
 		} else { 
 			// Estacionamento normal
