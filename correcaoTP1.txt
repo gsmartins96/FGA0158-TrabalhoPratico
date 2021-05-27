@@ -1,0 +1,23 @@
+Entrega 1 - Diagrama UML
+------------------------
+
+- As classes, seus atributos e métodos são suficientes para atender as
+  funcionalidades e o contexto descrito no enunciado do trabalho? (-10 pontos
+  para cada classe faltante, limitados a -60 pontos)
+    Faltando classe para representar o estacionamento em si, seu horario de funcionamento. 
+    Numero de classes faltantes: 1, -10 pontos. 
+
+- As associações entre classes, incluindo as multiplicidades dessas associações,
+  estão corretas sintática e semanticamente? (-5 pontos por erro de sentido da
+  associação limitados a -20 pontos, -5 pontos por erro de representação do tipo
+  da associaçao limitados a -15 pontos, -5 pontos por erro de multiplicidade
+  limitados a -10 pontos). 
+    Numero de erros de sentido de associação: 4, -20 pontos. 
+    Numero de erros de tipo de associação: 
+    Numero de erros de multuiplicidade: 3, -10 pontos. 
+
+- As classes implementadas refletem o Diagrama de Classes UML apresentado? (-10
+  pontos por erro inconsistencia identificada, limitados a -30 pontos). 
+    Numero de inconsistências identificadas: 
+
+TOTAL DE PONTOS OBTIDOS: 60 pontos.
