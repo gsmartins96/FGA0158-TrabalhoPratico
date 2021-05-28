@@ -1,0 +1,26 @@
+Entrega 3 - Aplicacao
+---------------------
+
+  OBS.: Erros sintáticos não permitem que a aplicação seja executada. -20 pontos.
+
+- Todos os cadastros estão funcionando adequadamente incluindo lançamento de
+  exceções para dados que não são informados ou estão incompletos? (-10 pontos
+  por cadastro com problema, limitados a -50 pontos). 
+     Número de cadastros com problemas: 
+
+
+- Todas as modalidades de calculo estão implementadas e calculando
+  adequadamente? (-10 pontos por cálculo errado, limitados a 30 pontos)
+     Nùmero de modalidades faltantes: minuto, fracao, hora. -30 pontos. 
+
+
+- O diagrama de classes reflete a estrutura do código em termos de pacotes,
+  classes, associações entre classes e relações de herança? (-5 pontos por
+  inconsistência encontrada, limitada a 30 pontos). 
+     Número de inconsistências encontradas: nao foram apresentados os pacotes. -5 pontos.
+
+
+- Herança foi utilizada? (-20 pontos, caso não tenha sido utilizado
+  adequadamente)
+     
+TOTAL DE PONTOS OBTIDOS: 45 pontos.
