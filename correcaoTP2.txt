@@ -1,0 +1,25 @@
+Entrega 2 - Cadastros
+---------------------
+
+OBS.: Programa com erros sintáticos, não compila. (-30 pontos).
+
+
+- Os cadastros de veiculos, clientes e acessos estão funcionando adequadamente,
+  com o armazenamento dos objetos em memória? (-10 pontos para cada classe
+  faltante, limitados a -30 pontos)
+    OBS.: Cadastros corretos. 
+    Numero de cadastros faltantes: 
+
+- As associações entre classes, incluindo as multiplicidades dessas
+  associações, estão sendo realizadas em memória? (-10 pontos para cada
+  associação errada, limitados a -30 pontos). 
+    OBS.: associações corretas.
+    Numero de associação não implementadas corretamente: 
+
+- As exceções estão implementadas corretamente? Classes de exceção foram
+  definidas? Objetos de exceção estão sendo lançados e capturados? (-10 pontos
+  por erro inconsistencia identificada, limitados a -30 pontos). 
+    Obs.: exceções lancadas e capturadas corretamente
+    Número de exceções não criadas / lancadas / capturadas:  
+
+TOTAL DE PONTOS OBTIDOS:  70 pontos.
